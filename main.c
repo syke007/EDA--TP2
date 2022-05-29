@@ -6,7 +6,7 @@
 int main() 
 {
     Job *list = NULL;
-    int op,jobId;
+    int op,jobId,OperationId;
 
     list = LoadData(list);
     do{
@@ -34,19 +34,20 @@ int main()
         switch (op)
                {
             case 1: 
-                system("cls || clear"); 
+                system("cls"); 
                 WriteData(list); 
                 printf("Exported to a File\n"); 
                 system("pause"); 
                 break;
             case 2: 
-                system("cls || clear"); 
+                system("cls"); 
                 print(list); 
                 system("pause"); 
                 break;
             case 3: 
-                system("cls || clear"); 
-                printf("JobId -> "); scanf("%d", &jobId);
+                system("cls"); 
+                printf("JobId -> ");
+                scanf("%d", &jobId);
                 if(verifyJob(list,jobId) == 1 )
                 {
                     printf("This Job already exists\n");
@@ -56,9 +57,18 @@ int main()
                 list = insertion_job(list,jobId); 
                 system("pause"); 
                 break;
-            case 4: 
+            case 4:
+                system("cls"); 
+                printf("JobId -> "); scanf("%d", &jobId); 
+                RemoveJob(list,jobId);
+                system("pause"); 
                 break;
             case 5: 
+                system("cls"); 
+                printf("JobId -> "); scanf("%d", &jobId); 
+                printf("OperationId -> "); scanf("%d", &OperationId); 
+                RemoveOperation(list,jobId,OperationId);
+                system("pause"); 
                 break;
             case 6: 
                 break;
@@ -69,7 +79,7 @@ int main()
             case 9: 
                 break;
             case 0: 
-            system("cls || clear"); 
+            system("cls"); 
             printf("See ya\n"); 
             break;
             }

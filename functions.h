@@ -26,5 +26,9 @@ Job *LoadData(Job* list);
 Job *WriteData(Job* list);
 int verifyJob(Job* list,int jobId);
 void print(Job *list);
+Job * RemoveJob(Job* list,int jobId);
+int verifyOperation(Job* list,int jobId, int operationID);
+Job * RemoveOperation(Job* list,int jobId, int operationID);
+int verifyMachine(Job* list,int jobId, int operationID,int machineID);
 
 #endif 

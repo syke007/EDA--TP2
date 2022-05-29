@@ -3,7 +3,6 @@
 #include <string.h>
 #include "functions.h"
 
-
 Job *insertion_job(Job *list, int JobID)
 {
     Job *new = (Job *)malloc(sizeof(Job));
@@ -54,6 +53,18 @@ Job *insertion(Job *list, int jobID, int operationID,  int machineID, int time)
 	}		
  }
 
+void print(Job *list)
+{
+    for(; list; list = list->next)
+    {
+        Machine * machine = list->first;
+        for(;machine; machine = machine->next)
+        {
+            printf("Job -> %d | Operation -> %d | Machine -> %d | Time -> %d\n",list->JobID,machine->OperationID,machine->MachineID, machine->Time);
+        }   
+    }
+}
+
 Job *LoadData(Job* list)
 {
     FILE *file;
@@ -89,7 +100,6 @@ Job *WriteData(Job* list)
 }
 
 
-
 int verifyJob(Job* list,int jobId)
 {
     for(; list; list = list->next)
@@ -103,14 +113,92 @@ int verifyJob(Job* list,int jobId)
     return 0;
 }
 
-void print(Job *list)
+Job * RemoveJob(Job* list,int jobId)
 {
     for(; list; list = list->next)
     {
-        Machine * machine = list->first;
-        for(;machine; machine = machine->next)
+        if(jobId == list->JobID)
         {
-            printf("Job -> %d | Operation -> %d | Machine -> %d | Time -> %d\n",list->JobID,machine->OperationID,machine->MachineID, machine->Time);
-        }   
+            Machine * machine = list->first;
+
+            for(;machine;machine = machine->next)
+            { 
+                if(list->first->next)
+                {
+                    list->first = list->first->next;
+                    list->next->prev = NULL;
+                }
+                else
+                {
+                    list->first = NULL;
+                    list->last = NULL;
+                }
+                free(machine); 
+            }
+            
+        }
+    }
+}
+
+int verifyOperation(Job* list,int jobId, int operationID)
+{
+    for(; list; list = list->next)
+    {
+        if(jobId == list->JobID)
+        {
+            Machine * machine = list->first;
+
+            if(machine->OperationID == operationID)
+            {
+                return 1;
+            }
+        }
+    }
+}
+
+Job * RemoveOperation(Job* list,int jobId, int operationID)
+{
+    for(; list; list = list->next)
+    {
+        if(jobId == list->JobID)
+        {
+            Machine * machine = list->first;
+            if(machine->OperationID == operationID)
+            {
+                for(;machine;machine = machine->next)
+                { 
+                    if(list->first->next)
+                    {
+                        list->first = list->first->next;
+                        list->next->prev = NULL;
+                    }
+                    else
+                    {
+                        list->first = NULL;
+                        list->last = NULL;
+                    }
+                    free(machine); 
+                }
+            } 
+        }
+    }
+}
+
+int verifyMachine(Job* list,int jobId, int operationID,int machineID)
+{
+    for(; list; list = list->next)
+    {
+        if(jobId == list->JobID)
+        {
+            Machine * machine = list->first;
+
+            if(machine->OperationID == operationID)
+            {
+                if(machine->MachineID == machineID)
+                {
+                    return 1;
+                }
+            }
+        }
     }
 }
