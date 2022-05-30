@@ -202,3 +202,64 @@ int verifyMachine(Job* list,int jobId, int operationID,int machineID)
         }
     }
 }
+
+Job * UpdateOperation(Job* list,int jobId, int operationID, int newOperationId)
+{
+    for(; list; list = list->next)
+    {
+        if(jobId == list->JobID)
+        {
+            Machine * machine = list->first;
+            for(;machine;machine = machine->next)
+            { 
+                if(machine->OperationID == operationID)
+                {
+                    machine->OperationID = newOperationId;
+                }
+            } 
+        }
+    }
+}
+
+Job * UpdateMachine(Job* list,int jobId, int operationID, int machineID, int newMachineId)
+{
+    for(; list; list = list->next)
+    {
+        if(jobId == list->JobID)
+        {
+            Machine * machine = list->first;
+            for(;machine;machine = machine->next)
+            { 
+                if(machine->OperationID == operationID)
+                {
+                    if(machine->MachineID == machineID)
+                    {
+                        machine->MachineID = newMachineId;
+                    }
+                }
+            } 
+        }
+    }
+}
+
+Job * UpdateMachineTime(Job* list,int jobId, int operationID, int machineID, int Time)
+{
+    for(; list; list = list->next)
+    {
+        if(jobId == list->JobID)
+        {
+            Machine * machine = list->first;
+            for(;machine;machine = machine->next)
+            { 
+                if(machine->OperationID == operationID)
+                {
+                    if(machine->MachineID == machineID)
+                    {
+                        machine->Time = Time;
+                    }
+                }
+            } 
+        }
+    }
+}
+

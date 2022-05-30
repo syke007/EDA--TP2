@@ -30,5 +30,7 @@ Job * RemoveJob(Job* list,int jobId);
 int verifyOperation(Job* list,int jobId, int operationID);
 Job * RemoveOperation(Job* list,int jobId, int operationID);
 int verifyMachine(Job* list,int jobId, int operationID,int machineID);
-
+Job * UpdateOperation(Job* list,int jobId, int operationID, int newOperationId);
+Job * UpdateMachine(Job* list,int jobId, int operationID, int machineID, int newMachineId);
+Job * UpdateMachineTime(Job* list,int jobId, int operationID, int machineID, int Time);
 #endif 

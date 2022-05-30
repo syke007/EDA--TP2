@@ -6,7 +6,7 @@
 int main() 
 {
     Job *list = NULL;
-    int op,jobId,OperationId;
+    int op,jobId,OperationId,newOperationId,machineId, time;
 
     list = LoadData(list);
     do{
@@ -71,8 +71,42 @@ int main()
                 system("pause"); 
                 break;
             case 6: 
+                system("cls"); 
+                printf("JobId -> "); scanf("%d", &jobId); 
+                printf("OperationId -> "); scanf("%d", &OperationId);  
+                printf("New OperationId -> "); scanf("%d", &newOperationId); 
+                if(verifyJob(list,jobId) == 1 )
+                {
+                    if(verifyOperation(list,jobId,OperationId) == 1)
+                    {
+                        if(verifyOperation(list,jobId,newOperationId) == 0) UpdateOperation(list,jobId,OperationId,newOperationId);
+                        else printf("New Operation already exists\n");
+                    }
+                    else printf("Operation doesnt exists\n");
+                }
+                else printf("Job doesnt exists\n");
+                system("pause"); 
                 break;
-            case 7: 
+            case 7:
+            system("cls"); 
+                printf("JobId -> "); scanf("%d", &jobId); 
+                printf("OperationId -> "); scanf("%d", &OperationId); 
+                printf("MachineID -> "); scanf("%d", &machineId);  
+                printf("Time -> "); scanf("%d", &time); 
+                if(verifyJob(list,jobId) == 1 )
+                {
+                    if(verifyOperation(list,jobId,OperationId) == 1)
+                    {
+                        if(verifyMachine(list,jobId,OperationId,machineId) == 1)
+                        {
+                            UpdateMachineTime(list,jobId,OperationId,machineId,time);
+                        } 
+                        else printf("Machine doesnt exists\n");                        
+                    }
+                    else printf("Operation doesnt exists\n");
+                }
+                else printf("Job doesnt exists\n");
+                system("pause");  
                 break;
             case 8: 
                 break;
