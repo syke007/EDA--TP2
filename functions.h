@@ -11,6 +11,7 @@
 #ifndef Functions
 #define Functions
 
+
 typedef struct _job
 {
     int JobID;
@@ -25,7 +26,6 @@ typedef struct _machine
     int Time;
     struct _machine *next,*prev;
 } Machine;
-
 
 
 

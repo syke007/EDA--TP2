@@ -1,0 +1,43 @@
+\hypertarget{functions_8h_source}{}\doxysection{functions.\+h}
+\mbox{\hyperlink{functions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef Functions}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define Functions}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct__job}{\_job}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} JobID;}
+\DoxyCodeLine{18     \textcolor{keyword}{struct }\mbox{\hyperlink{struct__job}{\_job}} *next,*prev;}
+\DoxyCodeLine{19     \textcolor{keyword}{struct }\mbox{\hyperlink{struct__machine}{\_machine}} *first,*last;}
+\DoxyCodeLine{20 \} \mbox{\hyperlink{struct__job}{Job}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct__machine}{\_machine}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} MachineID;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} OperationID;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} Time;}
+\DoxyCodeLine{27     \textcolor{keyword}{struct }\mbox{\hyperlink{struct__machine}{\_machine}} *next,*prev;}
+\DoxyCodeLine{28 \} \mbox{\hyperlink{struct__machine}{Machine}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \mbox{\hyperlink{struct__job}{Job}} *\mbox{\hyperlink{functions_8h_a695eed13c018c364d17a85d194305d05}{insertion\_job}}(\mbox{\hyperlink{struct__job}{Job}} *list, \textcolor{keywordtype}{int} JobID);}
+\DoxyCodeLine{33 \mbox{\hyperlink{struct__machine}{Machine}} *\mbox{\hyperlink{functions_8h_ac0b4058c7198668110ab3d8c9b697d67}{insertion\_machine}}(\mbox{\hyperlink{struct__machine}{Machine}} *list, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} MachineID, \textcolor{keywordtype}{int} time);}
+\DoxyCodeLine{34 \mbox{\hyperlink{struct__job}{Job}} *\mbox{\hyperlink{functions_8h_a6d4aa742af9b250ee1315f2b5b6c1632}{insertion}}(\mbox{\hyperlink{struct__job}{Job}} *list, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID,  \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} time);}
+\DoxyCodeLine{35 \mbox{\hyperlink{struct__job}{Job}} *\mbox{\hyperlink{functions_8h_ab01bf17037199b649bb0d0666659e08b}{LoadData}}(\mbox{\hyperlink{struct__job}{Job}}* list);}
+\DoxyCodeLine{36 \mbox{\hyperlink{struct__job}{Job}} *\mbox{\hyperlink{functions_8h_a23411beeff41a7d44ef24733e72be09f}{WriteData}}(\mbox{\hyperlink{struct__job}{Job}}* list);}
+\DoxyCodeLine{37 \textcolor{keywordtype}{int} \mbox{\hyperlink{functions_8h_a1b89b3b711849e150546a5055d2aa14b}{verifyJob}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId);}
+\DoxyCodeLine{38 \textcolor{keywordtype}{void} \mbox{\hyperlink{functions_8h_ae7976d0370602b5020eeb5568713d659}{print}}(\mbox{\hyperlink{struct__job}{Job}} *list);}
+\DoxyCodeLine{39 \mbox{\hyperlink{struct__job}{Job}} * \mbox{\hyperlink{functions_8h_a8da38d594d4479ad5d51c43d6b3b4423}{RemoveJob}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId);}
+\DoxyCodeLine{40 \textcolor{keywordtype}{int} \mbox{\hyperlink{functions_8h_a1cd65f188d3e1fefc5e3ec3110215651}{verifyOperation}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId, \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{41 \mbox{\hyperlink{struct__job}{Job}} * \mbox{\hyperlink{functions_8h_ae7d83ec3101c860047296c4e39f03b31}{RemoveOperation}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId, \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{42 \textcolor{keywordtype}{int} \mbox{\hyperlink{functions_8h_a40b3cee3d72995d399daa56dbea49751}{verifyMachine}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId, \textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{43 \mbox{\hyperlink{struct__job}{Job}} * \mbox{\hyperlink{functions_8h_addbfe5028309c60664b1f61e64d012b2}{UpdateOperation}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} newOperationId);}
+\DoxyCodeLine{44 \mbox{\hyperlink{struct__job}{Job}} * \mbox{\hyperlink{functions_8h_a9daf0f772df100b5f0a787aaf0e71833}{UpdateMachine}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} newMachineId);}
+\DoxyCodeLine{45 \mbox{\hyperlink{struct__job}{Job}} * \mbox{\hyperlink{functions_8h_a7e5cc2dc4110f0a703bb40c47f24484f}{UpdateMachineTime}}(\mbox{\hyperlink{struct__job}{Job}}* list,\textcolor{keywordtype}{int} jobId, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} Time);}
+\DoxyCodeLine{46 \mbox{\hyperlink{struct__job}{Job}} * \mbox{\hyperlink{functions_8h_a6450c6056e5e84513640853d28c5b539}{bestPath}}(\mbox{\hyperlink{struct__job}{Job}} *list,\textcolor{keywordtype}{int} limit);}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}

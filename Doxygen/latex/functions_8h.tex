@@ -1,0 +1,388 @@
+\hypertarget{functions_8h}{}\doxysection{functions.\+h File Reference}
+\label{functions_8h}\index{functions.h@{functions.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__job}{\+\_\+job}}
+\item 
+struct \mbox{\hyperlink{struct__machine}{\+\_\+machine}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{functions_8h_a9cd97ad1f8ba1493191ce905956eb994}\label{functions_8h_a9cd97ad1f8ba1493191ce905956eb994}} 
+typedef struct \mbox{\hyperlink{struct__job}{\+\_\+job}} {\bfseries Job}
+\item 
+\mbox{\Hypertarget{functions_8h_af9ef29f384240a8f302c807549a34829}\label{functions_8h_af9ef29f384240a8f302c807549a34829}} 
+typedef struct \mbox{\hyperlink{struct__machine}{\+\_\+machine}} {\bfseries Machine}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a695eed13c018c364d17a85d194305d05}{insertion\+\_\+job}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int Job\+ID)
+\begin{DoxyCompactList}\small\item\em Insere um job na lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__machine}{Machine}} $\ast$ \mbox{\hyperlink{functions_8h_ac0b4058c7198668110ab3d8c9b697d67}{insertion\+\_\+machine}} (\mbox{\hyperlink{struct__machine}{Machine}} $\ast$list, int operation\+ID, int Machine\+ID, int time)
+\begin{DoxyCompactList}\small\item\em insere uma maquina, ooperaçao e tempo na lista \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a6d4aa742af9b250ee1315f2b5b6c1632}{insertion}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+ID, int operation\+ID, int machine\+ID, int time)
+\begin{DoxyCompactList}\small\item\em insere a lista de machines dentro da lista de jobs \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_ab01bf17037199b649bb0d0666659e08b}{Load\+Data}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em le os dados do ficheiro txt \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a23411beeff41a7d44ef24733e72be09f}{Write\+Data}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em escreve os dados para um ficheiro txt \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_a1b89b3b711849e150546a5055d2aa14b}{verify\+Job}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id)
+\begin{DoxyCompactList}\small\item\em faz a verificação se um job já existe \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_ae7976d0370602b5020eeb5568713d659}{print}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em mostra ao utilizador os dados \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a8da38d594d4479ad5d51c43d6b3b4423}{Remove\+Job}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id)
+\begin{DoxyCompactList}\small\item\em faz a remoçao de um job \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_a1cd65f188d3e1fefc5e3ec3110215651}{verify\+Operation}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id, int operation\+ID)
+\begin{DoxyCompactList}\small\item\em faz a verificação se uma operaçao já existe \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_ae7d83ec3101c860047296c4e39f03b31}{Remove\+Operation}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id, int operation\+ID)
+\begin{DoxyCompactList}\small\item\em remove uma operaçao \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_a40b3cee3d72995d399daa56dbea49751}{verify\+Machine}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id, int operation\+ID, int machine\+ID)
+\begin{DoxyCompactList}\small\item\em faz a verificação se uma maquina já existe \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_addbfe5028309c60664b1f61e64d012b2}{Update\+Operation}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id, int operation\+ID, int new\+Operation\+Id)
+\begin{DoxyCompactList}\small\item\em altera a operation id \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a9daf0f772df100b5f0a787aaf0e71833}{Update\+Machine}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id, int operation\+ID, int machine\+ID, int new\+Machine\+Id)
+\begin{DoxyCompactList}\small\item\em altera o id duma maquina \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a7e5cc2dc4110f0a703bb40c47f24484f}{Update\+Machine\+Time}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int job\+Id, int operation\+ID, int machine\+ID, int Time)
+\begin{DoxyCompactList}\small\item\em altera um tempo duma maquina \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__job}{Job}} $\ast$ \mbox{\hyperlink{functions_8h_a6450c6056e5e84513640853d28c5b539}{best\+Path}} (\mbox{\hyperlink{struct__job}{Job}} $\ast$list, int limit)
+\begin{DoxyCompactList}\small\item\em calcula o melhor tempo para um job \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Iuri Rodrigues (\href{mailto:a21159@alunos.ipca.cpt}{\texttt{ a21159@alunos.\+ipca.\+cpt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/06-\/01
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functions_8h_a6450c6056e5e84513640853d28c5b539}\label{functions_8h_a6450c6056e5e84513640853d28c5b539}} 
+\index{functions.h@{functions.h}!bestPath@{bestPath}}
+\index{bestPath@{bestPath}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{bestPath()}{bestPath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ best\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{limit }\end{DoxyParamCaption})}
+
+
+
+calcula o melhor tempo para um job 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a6d4aa742af9b250ee1315f2b5b6c1632}\label{functions_8h_a6d4aa742af9b250ee1315f2b5b6c1632}} 
+\index{functions.h@{functions.h}!insertion@{insertion}}
+\index{insertion@{insertion}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{insertion()}{insertion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ insertion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+ID,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+insere a lista de machines dentro da lista de jobs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+ID} & \\
+\hline
+{\em operation\+ID} & \\
+\hline
+{\em machine\+ID} & \\
+\hline
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a695eed13c018c364d17a85d194305d05}\label{functions_8h_a695eed13c018c364d17a85d194305d05}} 
+\index{functions.h@{functions.h}!insertion\_job@{insertion\_job}}
+\index{insertion\_job@{insertion\_job}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{insertion\_job()}{insertion\_job()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ insertion\+\_\+job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{Job\+ID }\end{DoxyParamCaption})}
+
+
+
+Insere um job na lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em Job\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ac0b4058c7198668110ab3d8c9b697d67}\label{functions_8h_ac0b4058c7198668110ab3d8c9b697d67}} 
+\index{functions.h@{functions.h}!insertion\_machine@{insertion\_machine}}
+\index{insertion\_machine@{insertion\_machine}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{insertion\_machine()}{insertion\_machine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__machine}{Machine}} $\ast$ insertion\+\_\+machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__machine}{Machine}} $\ast$}]{list,  }\item[{int}]{operation\+ID,  }\item[{int}]{Machine\+ID,  }\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+insere uma maquina, ooperaçao e tempo na lista 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em operation\+ID} & \\
+\hline
+{\em Machine\+ID} & \\
+\hline
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Machine$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ab01bf17037199b649bb0d0666659e08b}\label{functions_8h_ab01bf17037199b649bb0d0666659e08b}} 
+\index{functions.h@{functions.h}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Load\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+le os dados do ficheiro txt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ae7976d0370602b5020eeb5568713d659}\label{functions_8h_ae7976d0370602b5020eeb5568713d659}} 
+\index{functions.h@{functions.h}!print@{print}}
+\index{print@{print}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+mostra ao utilizador os dados 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{functions_8h_a8da38d594d4479ad5d51c43d6b3b4423}\label{functions_8h_a8da38d594d4479ad5d51c43d6b3b4423}} 
+\index{functions.h@{functions.h}!RemoveJob@{RemoveJob}}
+\index{RemoveJob@{RemoveJob}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{RemoveJob()}{RemoveJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Remove\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id }\end{DoxyParamCaption})}
+
+
+
+faz a remoçao de um job 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ae7d83ec3101c860047296c4e39f03b31}\label{functions_8h_ae7d83ec3101c860047296c4e39f03b31}} 
+\index{functions.h@{functions.h}!RemoveOperation@{RemoveOperation}}
+\index{RemoveOperation@{RemoveOperation}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{RemoveOperation()}{RemoveOperation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Remove\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id,  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+
+
+
+remove uma operaçao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+{\em operation\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a9daf0f772df100b5f0a787aaf0e71833}\label{functions_8h_a9daf0f772df100b5f0a787aaf0e71833}} 
+\index{functions.h@{functions.h}!UpdateMachine@{UpdateMachine}}
+\index{UpdateMachine@{UpdateMachine}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{UpdateMachine()}{UpdateMachine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Update\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{new\+Machine\+Id }\end{DoxyParamCaption})}
+
+
+
+altera o id duma maquina 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+{\em operation\+ID} & \\
+\hline
+{\em machine\+ID} & \\
+\hline
+{\em new\+Machine\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a7e5cc2dc4110f0a703bb40c47f24484f}\label{functions_8h_a7e5cc2dc4110f0a703bb40c47f24484f}} 
+\index{functions.h@{functions.h}!UpdateMachineTime@{UpdateMachineTime}}
+\index{UpdateMachineTime@{UpdateMachineTime}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{UpdateMachineTime()}{UpdateMachineTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Update\+Machine\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{Time }\end{DoxyParamCaption})}
+
+
+
+altera um tempo duma maquina 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+{\em operation\+ID} & \\
+\hline
+{\em machine\+ID} & \\
+\hline
+{\em Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_addbfe5028309c60664b1f61e64d012b2}\label{functions_8h_addbfe5028309c60664b1f61e64d012b2}} 
+\index{functions.h@{functions.h}!UpdateOperation@{UpdateOperation}}
+\index{UpdateOperation@{UpdateOperation}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{UpdateOperation()}{UpdateOperation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Update\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id,  }\item[{int}]{operation\+ID,  }\item[{int}]{new\+Operation\+Id }\end{DoxyParamCaption})}
+
+
+
+altera a operation id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+{\em operation\+ID} & \\
+\hline
+{\em new\+Operation\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a1b89b3b711849e150546a5055d2aa14b}\label{functions_8h_a1b89b3b711849e150546a5055d2aa14b}} 
+\index{functions.h@{functions.h}!verifyJob@{verifyJob}}
+\index{verifyJob@{verifyJob}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{verifyJob()}{verifyJob()}}
+{\footnotesize\ttfamily int verify\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id }\end{DoxyParamCaption})}
+
+
+
+faz a verificação se um job já existe 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a40b3cee3d72995d399daa56dbea49751}\label{functions_8h_a40b3cee3d72995d399daa56dbea49751}} 
+\index{functions.h@{functions.h}!verifyMachine@{verifyMachine}}
+\index{verifyMachine@{verifyMachine}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{verifyMachine()}{verifyMachine()}}
+{\footnotesize\ttfamily int verify\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID }\end{DoxyParamCaption})}
+
+
+
+faz a verificação se uma maquina já existe 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a1cd65f188d3e1fefc5e3ec3110215651}\label{functions_8h_a1cd65f188d3e1fefc5e3ec3110215651}} 
+\index{functions.h@{functions.h}!verifyOperation@{verifyOperation}}
+\index{verifyOperation@{verifyOperation}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{verifyOperation()}{verifyOperation()}}
+{\footnotesize\ttfamily int verify\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list,  }\item[{int}]{job\+Id,  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+
+
+
+faz a verificação se uma operaçao já existe 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em job\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a23411beeff41a7d44ef24733e72be09f}\label{functions_8h_a23411beeff41a7d44ef24733e72be09f}} 
+\index{functions.h@{functions.h}!WriteData@{WriteData}}
+\index{WriteData@{WriteData}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{WriteData()}{WriteData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__job}{Job}} $\ast$ Write\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__job}{Job}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+escreve os dados para um ficheiro txt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Job$\ast$ 
+\end{DoxyReturn}

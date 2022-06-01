@@ -14,6 +14,12 @@
 #include <string.h>
 #include "functions.h"
 
+
+/**
+ * @brief Menu de interaçao com o utilizador
+ * 
+ * @return int 
+ */
 int main()
 {
     Job *list = NULL;
