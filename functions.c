@@ -1,8 +1,27 @@
+/**
+ * @file functions.h
+ * @author Iuri Rodrigues (a21159@alunos.ipca.cpt)
+ * @brief 
+ * @version 0.1
+ * @date 2022-06-01
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "functions.h"
 
+
+/**
+ * @brief Insere um job na lista
+ * 
+ * @param list 
+ * @param JobID 
+ * @return Job* 
+ */
 Job *insertion_job(Job *list, int JobID)
 {
     Job *new = (Job *)malloc(sizeof(Job));
@@ -14,6 +33,16 @@ Job *insertion_job(Job *list, int JobID)
     return new;
 }
 
+
+/**
+ * @brief insere uma maquina, ooperaçao e tempo na lista
+ * 
+ * @param list 
+ * @param operationID 
+ * @param MachineID 
+ * @param time 
+ * @return Machine* 
+ */
 Machine *insertion_machine(Machine *list, int operationID, int MachineID, int time)
 {
     Machine *new = (Machine *)malloc(sizeof(Machine));
@@ -30,6 +59,17 @@ Machine *insertion_machine(Machine *list, int operationID, int MachineID, int ti
     return new;
 }
 
+
+/**
+ * @brief insere a lista de machines dentro da lista de jobs
+ * 
+ * @param list 
+ * @param jobID 
+ * @param operationID 
+ * @param machineID 
+ * @param time 
+ * @return Job* 
+ */
 Job *insertion(Job *list, int jobID, int operationID,  int machineID, int time)
 {
 	if (list != NULL)
@@ -53,6 +93,12 @@ Job *insertion(Job *list, int jobID, int operationID,  int machineID, int time)
 	}		
  }
 
+
+/**
+ * @brief mostra ao utilizador os dados 
+ * 
+ * @param list 
+ */
 void print(Job *list)
 {
     for(; list; list = list->next)
@@ -65,6 +111,13 @@ void print(Job *list)
     }
 }
 
+
+/**
+ * @brief le os dados do ficheiro txt
+ * 
+ * @param list 
+ * @return Job* 
+ */
 Job *LoadData(Job* list)
 {
     FILE *file;
@@ -83,6 +136,13 @@ Job *LoadData(Job* list)
     return list;
 }
 
+
+/**
+ * @brief escreve os dados para um ficheiro txt
+ * 
+ * @param list 
+ * @return Job* 
+ */
 Job *WriteData(Job* list)
 {
     FILE *file;
@@ -100,6 +160,13 @@ Job *WriteData(Job* list)
 }
 
 
+/**
+ * @brief faz a verificação se um job já existe
+ * 
+ * @param list 
+ * @param jobId 
+ * @return int 
+ */
 int verifyJob(Job* list,int jobId)
 {
     for(; list; list = list->next)
@@ -113,6 +180,13 @@ int verifyJob(Job* list,int jobId)
     return 0;
 }
 
+/**
+ * @brief faz a remoçao de um job
+ * 
+ * @param list 
+ * @param jobId 
+ * @return Job* 
+ */
 Job * RemoveJob(Job* list,int jobId)
 {
     for(; list; list = list->next)
@@ -140,6 +214,14 @@ Job * RemoveJob(Job* list,int jobId)
     }
 }
 
+
+/**
+ * @brief faz a verificação se uma operaçao já existe
+ * 
+ * @param list 
+ * @param jobId 
+ * @return int 
+ */
 int verifyOperation(Job* list,int jobId, int operationID)
 {
     for(; list; list = list->next)
@@ -156,6 +238,14 @@ int verifyOperation(Job* list,int jobId, int operationID)
     }
 }
 
+/**
+ * @brief remove uma operaçao
+ * 
+ * @param list 
+ * @param jobId 
+ * @param operationID 
+ * @return Job* 
+ */
 Job * RemoveOperation(Job* list,int jobId, int operationID)
 {
     for(; list; list = list->next)
@@ -184,6 +274,14 @@ Job * RemoveOperation(Job* list,int jobId, int operationID)
     }
 }
 
+
+/**
+ * @brief faz a verificação se uma maquina já existe
+ * 
+ * @param list 
+ * @param jobId 
+ * @return int 
+ */
 int verifyMachine(Job* list,int jobId, int operationID,int machineID)
 {
     for(; list; list = list->next)
@@ -203,6 +301,16 @@ int verifyMachine(Job* list,int jobId, int operationID,int machineID)
     }
 }
 
+
+/**
+ * @brief altera a operation id
+ * 
+ * @param list 
+ * @param jobId 
+ * @param operationID 
+ * @param newOperationId 
+ * @return Job* 
+ */
 Job * UpdateOperation(Job* list,int jobId, int operationID, int newOperationId)
 {
     for(; list; list = list->next)
@@ -221,6 +329,17 @@ Job * UpdateOperation(Job* list,int jobId, int operationID, int newOperationId)
     }
 }
 
+
+/**
+ * @brief altera o id duma maquina
+ * 
+ * @param list 
+ * @param jobId 
+ * @param operationID 
+ * @param machineID 
+ * @param newMachineId 
+ * @return Job* 
+ */
 Job * UpdateMachine(Job* list,int jobId, int operationID, int machineID, int newMachineId)
 {
     for(; list; list = list->next)
@@ -242,6 +361,16 @@ Job * UpdateMachine(Job* list,int jobId, int operationID, int machineID, int new
     }
 }
 
+/**
+ * @brief altera um tempo duma maquina
+ * 
+ * @param list 
+ * @param jobId 
+ * @param operationID 
+ * @param machineID 
+ * @param Time 
+ * @return Job* 
+ */
 Job * UpdateMachineTime(Job* list,int jobId, int operationID, int machineID, int Time)
 {
     for(; list; list = list->next)
@@ -263,6 +392,14 @@ Job * UpdateMachineTime(Job* list,int jobId, int operationID, int machineID, int
     }
 }
 
+
+/**
+ * @brief calcula o melhor tempo para um job
+ * 
+ * @param list 
+ * @param limit 
+ * @return Job* 
+ */
 Job * bestPath(Job *list,int limit)
 {
     int Best[50][50][50];

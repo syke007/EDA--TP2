@@ -1,3 +1,14 @@
+/**
+ * @file functions.h
+ * @author Iuri Rodrigues (a21159@alunos.ipca.cpt)
+ * @brief 
+ * @version 0.1
+ * @date 2022-06-01
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -6,7 +17,7 @@
 int main()
 {
     Job *list = NULL;
-    int op, jobId, OperationId, newOperationId, machineId, time, limit;
+    int op, jobId, OperationId, newOperationId, machineId, time, limit, newMachineId;
 
     list = LoadData(list);
     do
@@ -77,9 +88,9 @@ int main()
             scanf("%d", &jobId);
             printf("OperationId -> ");
             scanf("%d", &OperationId);
-            if (verifyJob(list, jobId) == 0)
+            if (verifyJob(list, jobId) == 1)
             {
-                if (verifyOperation(list, jobId, OperationId) == 0)
+                if (verifyOperation(list, jobId, OperationId) == 1)
                     RemoveOperation(list, jobId, OperationId);
                 else
                     printf("Operation doesnt exists\n");
@@ -106,12 +117,13 @@ int main()
                         printf("New Operation already exists\n");
                 }
                 else
-                    printf("Operation doesnt exists\n");
+                    printf("Operation dont exists\n");
             }
             else
-                printf("Job doesnt exists\n");
+                printf("Job dont exists\n");
             system("pause");
             break;
+
         case 7:
             system("cls");
             printf("JobId -> ");
@@ -120,15 +132,18 @@ int main()
             scanf("%d", &OperationId);
             printf("MachineID -> ");
             scanf("%d", &machineId);
-            printf("Time -> ");
-            scanf("%d", &time);
+            printf("New MachineID -> ");
+            scanf("%d", &newMachineId);
             if (verifyJob(list, jobId) == 1)
             {
                 if (verifyOperation(list, jobId, OperationId) == 1)
                 {
                     if (verifyMachine(list, jobId, OperationId, machineId) == 1)
                     {
-                        UpdateMachineTime(list, jobId, OperationId, machineId, time);
+                        if (verifyMachine(list, jobId, OperationId, newMachineId) == 0)
+                            UpdateMachine(list, jobId, OperationId, machineId, newMachineId);
+                        else
+                            printf("New Machine already exists\n");
                     }
                     else
                         printf("Machine doesnt exists\n");

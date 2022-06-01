@@ -1,3 +1,13 @@
+/**
+ * @file functions.h
+ * @author Iuri Rodrigues (a21159@alunos.ipca.cpt)
+ * @brief 
+ * @version 0.1
+ * @date 2022-06-01
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #ifndef Functions
 #define Functions
 
