@@ -33,4 +33,5 @@ int verifyMachine(Job* list,int jobId, int operationID,int machineID);
 Job * UpdateOperation(Job* list,int jobId, int operationID, int newOperationId);
 Job * UpdateMachine(Job* list,int jobId, int operationID, int machineID, int newMachineId);
 Job * UpdateMachineTime(Job* list,int jobId, int operationID, int machineID, int Time);
+Job * bestPath(Job *list,int limit);
 #endif 

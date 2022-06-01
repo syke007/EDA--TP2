@@ -263,3 +263,62 @@ Job * UpdateMachineTime(Job* list,int jobId, int operationID, int machineID, int
     }
 }
 
+Job * bestPath(Job *list,int limit)
+{
+    int Best[50][50][50];
+    for(int i = 0; i<50; i++)
+    {
+        for(int x = 0; x<50; x++)
+        {
+            for(int y = 0; y<50; y++)
+            { Best[i][x][y] = 0; } 
+        }
+    }
+
+    for(; list; list = list->next)
+    {
+        Machine * machine = list->first;
+        for(; machine; machine = machine->next)
+        {
+            if(Best[list->JobID][machine->OperationID][machine->MachineID] == 0)
+            {
+                Best[list->JobID][machine->OperationID][machine->MachineID] = machine->Time; 
+            }   
+            else
+            {
+                if(Best[list->JobID][machine->OperationID][machine->MachineID] > machine->Time)
+                {
+                    Best[list->JobID][machine->OperationID][machine->MachineID] = machine->Time; 
+                }
+            }
+        }
+    }
+    FILE *file;
+    int total = 0;
+    file = fopen("index.html", "w"); 
+    fprintf(file, "<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">\n\n");
+    fprintf(file, "<table class=\"zui-table\" >\n");
+    fprintf(file, "\t <thead> \n  \t\t<th> Job </th>\n \t\t<th> Operation </th>\n \t\t<th> Machine </th>\n \t\t<th> Time </th>\n \t\t<th> Total Time </th>\n \t </thead> \n ");
+    for(int i = 0; i<50; i++)
+    {
+        for(int x = 0; x<50; x++)
+        {
+            for(int y = 0; y<50; y++)
+            {
+                if(Best[i][x][y] != 0)
+                {
+                    if(total + Best[i][x][y] <= limit)
+                    {
+                        total = total + Best[i][x][y];
+                        fprintf(file, "\t<tr>\n\t \t<td> %d </td>\n \t\t<td> %d </td>\n \t\t<td> %d </td>\n \t\t<td> %d </td>\n \t\t<td> %d </td>\n \t</tr>\n", i,x,y,Best[i][x][y], total);
+                    }
+                    else break;
+                    
+                }
+            } 
+        }
+        total = 0;
+    }
+    fprintf(file, "</table>\n");~
+    fclose(file);
+}
