@@ -23,7 +23,8 @@
 int main()
 {
     Job *list = NULL;
-    int op, jobId, OperationId, newOperationId, machineId, time, limit, newMachineId;
+    int op, jobId, OperationId, newOperationId, machineId, time, limit, newMachineId, MachineID;
+
 
     list = LoadData(list);
     do
@@ -38,10 +39,11 @@ int main()
         printf("| 4- Remove Job                          	|\n");
         printf("| 5- Remove Operation                   	|\n");
         printf("|--                                     	|\n");
-        printf("| 6- Update OperationID                     |\n");
-        printf("| 7- Update MachineID                       |\n");
-        printf("| 8- Update Machine Time                    |\n");
-        printf("| 9- FJSSP                                  |\n");
+        printf("| 6- Update Job                             |\n");
+        printf("| 7- Update OperationID                     |\n");
+        printf("| 8- Update MachineID                       |\n");
+        printf("| 9- Update Machine Time                    |\n");
+        printf("| 10- FJSSP                                 |\n");
         printf("|--                                     	|\n");
         printf("|              0 to exit                  	|\n");
         printf("|-------------------------------------------|\n");
@@ -109,6 +111,40 @@ int main()
             system("cls");
             printf("JobId -> ");
             scanf("%d", &jobId);
+            printf("OPid -> ");
+            scanf("%d", &OperationId);
+            printf("MachineID -> ");
+            scanf("%d", &MachineID);
+            printf("Time -> ");
+            scanf("%d", &time);
+            
+            if (verifyJob(list, jobId) == 1)
+            {
+                
+                if (verifyOperation(list, jobId, OperationId) == 0)
+                {
+                
+                    if (verifyMachine(list, jobId, OperationId, machineId) == 0)
+                    {
+                       
+                        list = insertion(list, jobId,OperationId,MachineID,time); 
+                       
+                    }
+                    else
+                    
+                }
+                else
+               
+                
+            }
+            else 
+            printf("Job doesnt exists\n");
+            system("pause");
+            break;
+        case 7:
+            system("cls");
+            printf("JobId -> ");
+            scanf("%d", &jobId);
             printf("OperationId -> ");
             scanf("%d", &OperationId);
             printf("New OperationId -> ");
@@ -130,7 +166,7 @@ int main()
             system("pause");
             break;
 
-        case 7:
+        case 8:
             system("cls");
             printf("JobId -> ");
             scanf("%d", &jobId);
@@ -161,7 +197,7 @@ int main()
                 printf("Job doesnt exists\n");
             system("pause");
             break;
-        case 8:
+        case 9:
             system("cls");
             printf("JobId -> ");
             scanf("%d", &jobId);
@@ -189,7 +225,7 @@ int main()
                 printf("Job doesnt exists\n");
             system("pause");
             break;
-        case 9:
+        case 10:
             system("cls");
             printf("Limit -> ");
             scanf("%d", &limit);
